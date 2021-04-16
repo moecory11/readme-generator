@@ -20,13 +20,13 @@ const questions = [
     },
     {
         type: "list",
-        message: "Please select one of these licenses: ",
+        message: "Please select one of the licenses: ",
         name: "license",
         choices: [
             "Apache",
-            "IBM",
             "MIT",
-            "Perl"
+            "GNU",
+            "GPL"
         ]
     },
     {
@@ -44,11 +44,11 @@ const questions = [
         message: 'Contributors to this project?',
         name: 'contributor'
     },
-    {
-        type: "input",
-        message: "Please provide a description of the license to use:",
-        name: "license"
-    },
+    // {
+    //     type: "input",
+    //     message: "Please provide a description of the license to use:",
+    //     name: "badge"
+    // },
     {
         type: 'input',
         message: 'What are your projects tests?',
@@ -72,7 +72,7 @@ function writeToFile(fileName, data) {
         if (err) {
             return console.log(err);
         }
-        console.log("Your README.md file has been generated")
+        console.log("Your README.md file has been generated. Enjoy!")
     });
 }
 
@@ -83,7 +83,7 @@ function promptUser(){
 }
 
 async function init() {
-    console.log("Welcome to the README Generator!")
+    console.log("Welcome to READme generator. Complete the the follow questions to begin creating your READme.md: ")
     try {
         const answers = await promptUser();
         const readMe = generateMarkdown(answers);
